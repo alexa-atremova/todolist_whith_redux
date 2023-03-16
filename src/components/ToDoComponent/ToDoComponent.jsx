@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Header from "../Header/Header";
 
 const TodoListContainer = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   margin: 20px 0;
-  padding: 0px 50px;
+  padding: 50px;
 `;
 
 const ItemsContainer = styled.div`
@@ -25,6 +26,12 @@ const Title = styled.h2`
 `;
 
 const List = styled.ul`
+  width: 100%;
+  max-width: 200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
   list-style: none;
   margin: 0;
   padding: 0;
@@ -32,6 +39,7 @@ const List = styled.ul`
 
 const ListItem = styled.li`
   margin-bottom: 10px;
+  list-style-type: disc;
 `;
 
 const ItemText = styled.span`
@@ -39,27 +47,33 @@ const ItemText = styled.span`
   color: #333333;
 `;
 
-function TodoList() {
+function ToDoComponent({ doneItems, todoItems }) {
   return (
-    <TodoListContainer>
-      <ItemsContainer>
-        <Title>Todo:</Title>
-        <List>
-          <ListItem key="2">
-            <ItemText>text</ItemText>
-          </ListItem>
-        </List>
-      </ItemsContainer>
-      <ItemsContainer>
-        <Title>Done:</Title>
-        <List>
-          <ListItem key="1">
-            <ItemText>text</ItemText>
-          </ListItem>
-        </List>
-      </ItemsContainer>
-    </TodoListContainer>
+    <>
+      <TodoListContainer>
+        <ItemsContainer>
+          <Title>Todo:</Title>
+          <List>
+            {todoItems.map((item) => (
+              <ListItem key={item.id}>
+                <ItemText>{item.text}</ItemText>
+              </ListItem>
+            ))}
+          </List>
+        </ItemsContainer>
+        <ItemsContainer>
+          <Title>Done:</Title>
+          <List>
+            {doneItems.map((item) => (
+              <ListItem key={item.id}>
+                <ItemText>{item.text}</ItemText>
+              </ListItem>
+            ))}
+          </List>
+        </ItemsContainer>
+      </TodoListContainer>
+    </>
   );
 }
 
-export default TodoList;
+export default ToDoComponent;

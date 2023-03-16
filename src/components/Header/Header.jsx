@@ -6,8 +6,8 @@ function Header() {
     <HeaderContainer>
       <Logo>My App</Logo>
       <Nav>
-        <NavItem href="/todo">ToDo</NavItem>
-        <NavItem href="/editor">Editor</NavItem>
+        <NavItem to="/todo">ToDo</NavItem>
+        <NavItem to="/editor">Editor</NavItem>
       </Nav>
     </HeaderContainer>
   );

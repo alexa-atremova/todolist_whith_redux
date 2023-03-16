@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const HeaderContainer = styled.div`
@@ -6,7 +7,7 @@ export const HeaderContainer = styled.div`
   align-items: center;
   background-color: #ffffff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-  padding: 20px;
+  padding: 20px 100px;
 `;
 
 export const Logo = styled.h1`
@@ -21,7 +22,7 @@ export const Nav = styled.nav`
   align-items: center;
 `;
 
-export const NavItem = styled.a`
+export const NavItem = styled(Link)`
   margin-right: 20px;
   font-size: 18px;
   font-weight: 500;

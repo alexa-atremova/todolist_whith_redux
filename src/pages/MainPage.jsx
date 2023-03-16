@@ -1,14 +1,10 @@
 import React from "react";
-import EditorComponent from "../components/EditorComponent/EditorComponent";
-import Header from "../components/Header/Header";
-import ToDoComponent from "../components/ToDoComponent/ToDoComponent";
+import TodoListContainer from "../components/ToDoComponent/TodoListContainer";
 
 function MainPage() {
   return (
     <div>
-      <Header />
-      <EditorComponent />
-      <ToDoComponent />
+      <TodoListContainer />
     </div>
   );
 }
