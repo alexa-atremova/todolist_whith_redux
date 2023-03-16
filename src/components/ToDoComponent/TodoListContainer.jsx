@@ -1,6 +1,6 @@
 import React from "react";
+import todoList from "../../store/mock-items";
 import ToDoComponent from "./ToDoComponent";
-import { todoList } from "./../../store/mock-items";
 
 export function TodoListContainer() {
   const todoItems = todoList.filter((item) => !item.done);
