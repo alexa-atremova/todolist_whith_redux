@@ -3,11 +3,7 @@ import EditorComponent from "./EditorComponent";
 EditorContainer;
 
 export function EditorContainer() {
-  return (
-    <div id="Editor">
-      <EditorComponent />
-    </div>
-  );
+  return <EditorComponent />;
 }
 
 export default EditorContainer;

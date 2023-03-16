@@ -4,7 +4,7 @@ import { HeaderContainer, Logo, Nav, NavItem } from "./styles";
 function Header() {
   return (
     <HeaderContainer>
-      <Logo>My App</Logo>
+      <Logo to="/">My App</Logo>
       <Nav>
         <NavItem to="/todo">ToDo</NavItem>
         <NavItem to="/editor">Editor</NavItem>
