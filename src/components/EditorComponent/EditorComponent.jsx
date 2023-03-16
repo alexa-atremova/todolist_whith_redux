@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Trash } from "react-bootstrap-icons";
 import "./styles.css";
+import todoList from "../../store/mock-items";
 
 export default function EditorComponent({
   items,
@@ -24,7 +25,7 @@ export default function EditorComponent({
 
   return (
     <div className="editor__container">
-      {items.map((item) => (
+      {todoList.map((item) => (
         <Form.Group key={item.id} className="editor__item">
           <Form.Check
             type="checkbox"
