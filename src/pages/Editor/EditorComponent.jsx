@@ -3,8 +3,7 @@ import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { Trash } from "react-bootstrap-icons";
 import "./styles.css";
-import AddItemContainer from "../AddItem/AddItemContainer";
-import todoList from "../../store/mock-items";
+import AddItemContainer from "../../components/AddItem/AddItemContainer";
 
 export default function EditorComponent({
   items,

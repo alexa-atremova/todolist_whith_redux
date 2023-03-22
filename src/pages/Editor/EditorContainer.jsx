@@ -1,9 +1,11 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { EditorComponent } from "./EditorComponent";
+import EditorComponent from "./EditorComponent";
 
-export function EditorContainer() {
-  const items = useSelector((state) => state.todos);
+function EditorContainer() {
+  console.log("items");
+  const items = useSelector((state) => state.todo.todoList);
+  console.log(items);
 
   const handleTextChange = (item, value) => {
     console.log(item, value);
