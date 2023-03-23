@@ -11,18 +11,6 @@ export default function EditorComponent({
   onToggle,
   onRemove,
 }) {
-  const handleChange = (item, value) => {
-    onTextChange(item, value);
-  };
-
-  const handleToggle = (item, value) => {
-    onToggle(item, value);
-  };
-
-  const handleRemove = (item) => {
-    onRemove(item);
-  };
-
   return (
     <>
       <div className="editor__container">
@@ -32,19 +20,19 @@ export default function EditorComponent({
               type="checkbox"
               className="editor__checkbox"
               checked={item.done}
-              onChange={(event) => handleToggle(item, event.target.checked)}
+              onChange={() => onToggle(item.id)}
             />
             <Form.Control
               type="text"
               className="editor__input"
               value={item.text}
-              onChange={(event) => handleChange(item, event.target.value)}
+              onChange={(event) => onTextChange(item, event.target.value)}
             />
             <Button
               type="button"
               variant="danger"
               className="editor__button"
-              onClick={() => handleRemove(item.id)}
+              onClick={() => onRemove(item.id)}
             >
               <Trash />
             </Button>

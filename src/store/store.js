@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import todoSlice from "./slice";
+
 import { loadFromLocalStorage } from "./localStorage";
 import { localStorageMiddleware } from "./middleware";
 

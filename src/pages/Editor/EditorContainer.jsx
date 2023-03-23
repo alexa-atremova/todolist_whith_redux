@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { removeTodo } from "../../store/slice";
+import { removeTodo, toggleTodo } from "../../store/slice";
 import EditorComponent from "./EditorComponent";
 
 function EditorContainer() {
@@ -9,8 +9,8 @@ function EditorContainer() {
   const handleTextChange = (item, value) => {
     console.log(item, value);
   };
-  const handleToggle = (item, value) => {
-    console.log(item, value);
+  const handleToggle = (item) => {
+    dispatch(toggleTodo(item));
   };
   const handleRemove = (id) => {
     dispatch(removeTodo(id));

@@ -15,10 +15,18 @@ export const todoSlice = createSlice({
       const id = action.payload;
       state.todoList = state.todoList.filter((item) => item.id !== id);
     },
+    toggleTodo: (state, action) => {
+      const todoToToggle = state.todoList.find(
+        (todo) => todo.id === action.payload
+      );
+      if (todoToToggle) {
+        todoToToggle.done = !todoToToggle.done;
+      }
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addTodo, removeTodo } = todoSlice.actions;
+export const { addTodo, removeTodo, toggleTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
