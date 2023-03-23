@@ -44,7 +44,7 @@ export default function EditorComponent({
               type="button"
               variant="danger"
               className="editor__button"
-              onClick={() => handleRemove(item)}
+              onClick={() => handleRemove(item.id)}
             >
               <Trash />
             </Button>

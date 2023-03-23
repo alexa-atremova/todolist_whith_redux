@@ -1,20 +1,19 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeTodo } from "../../store/slice";
 import EditorComponent from "./EditorComponent";
 
 function EditorContainer() {
-  console.log("items");
+  const dispatch = useDispatch();
   const items = useSelector((state) => state.todo.todoList);
-  console.log(items);
-
   const handleTextChange = (item, value) => {
     console.log(item, value);
   };
   const handleToggle = (item, value) => {
     console.log(item, value);
   };
-  const handleRemove = (item) => {
-    console.log(item);
+  const handleRemove = (id) => {
+    dispatch(removeTodo(id));
   };
 
   return (
