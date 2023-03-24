@@ -1,9 +1,13 @@
 import React from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { Trash } from "react-bootstrap-icons";
-import "./styles.css";
 import AddItemContainer from "../../components/AddItem/AddItemContainer";
+import {
+  CustomCheckbox,
+  EditorButton,
+  EditorContainer,
+  EditorInput,
+  EditorItem,
+} from "./styles";
 
 export default function EditorComponent({
   items,
@@ -12,34 +16,29 @@ export default function EditorComponent({
   onRemove,
 }) {
   return (
-    <>
-      <div className="editor__container">
-        {items.map((item) => (
-          <Form.Group key={item.id} className="editor__item">
-            <Form.Check
-              type="checkbox"
-              className="editor__checkbox"
-              checked={item.done}
-              onChange={() => onToggle(item.id)}
-            />
-            <Form.Control
-              type="text"
-              className="editor__input"
-              value={item.text}
-              onChange={(event) => onTextChange(item, event.target.value)}
-            />
-            <Button
-              type="button"
-              variant="danger"
-              className="editor__button"
-              onClick={() => onRemove(item.id)}
-            >
-              <Trash />
-            </Button>
-          </Form.Group>
-        ))}
-        <AddItemContainer />
-      </div>
-    </>
+    <EditorContainer>
+      {items.map((item) => (
+        <EditorItem key={item.id}>
+          <CustomCheckbox
+            type="checkbox"
+            checked={item.done}
+            onChange={() => onToggle(item.id)}
+          />
+          <EditorInput
+            type="text"
+            value={item.text}
+            onChange={(event) => onTextChange(item, event.target.value)}
+          />
+          <EditorButton
+            type="button"
+            variant="danger"
+            onClick={() => onRemove(item.id)}
+          >
+            <Trash />
+          </EditorButton>
+        </EditorItem>
+      ))}
+      <AddItemContainer />
+    </EditorContainer>
   );
 }

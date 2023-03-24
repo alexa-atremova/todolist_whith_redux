@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import Form from "react-bootstrap/Form";
-import Button from "react-bootstrap/Button";
 import { Plus } from "react-bootstrap-icons";
-
-import "./styles.css";
+import {
+  AddItemButton,
+  AddItemContainer,
+  AddItemGroup,
+  AddItemInput,
+} from "./style";
 
 export default function AddItemComponent({ onAdd }) {
   const [text, setText] = useState("");
@@ -18,23 +20,17 @@ export default function AddItemComponent({ onAdd }) {
   };
 
   return (
-    <div className="add-item__container">
-      <Form.Group className="add-item__item">
-        <Form.Control
+    <AddItemContainer>
+      <AddItemGroup>
+        <AddItemInput
           type="text"
-          className="add-item__input"
           value={text}
           onChange={(event) => handleChange(event.target.value)}
         />
-        <Button
-          type="button"
-          variant="primary"
-          className="add-item__button"
-          onClick={handleAdd}
-        >
+        <AddItemButton type="button" variant="primary" onClick={handleAdd}>
           <Plus />
-        </Button>
-      </Form.Group>
-    </div>
+        </AddItemButton>
+      </AddItemGroup>
+    </AddItemContainer>
   );
 }
