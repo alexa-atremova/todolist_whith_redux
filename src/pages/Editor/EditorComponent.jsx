@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Trash } from "react-bootstrap-icons";
 import AddItemContainer from "../../components/AddItem/AddItemContainer";
 import {
@@ -24,11 +24,13 @@ export default function EditorComponent({
             checked={item.done}
             onChange={() => onToggle(item.id)}
           />
+
           <EditorInput
             type="text"
             value={item.text}
             onChange={(event) => onTextChange(item, event.target.value)}
           />
+
           <EditorButton
             type="button"
             variant="danger"
